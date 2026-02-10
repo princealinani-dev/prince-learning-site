@@ -1,0 +1,2438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Digital Literacy Program | Tanzania</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: #2d3748;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header with Hamburger Menu */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            background: white;
+            color: #1e3c72;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger-container {
+            position: relative;
+        }
+        
+        .hamburger-btn {
+            background: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 0;
+        }
+        
+        .hamburger-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        .hamburger-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            min-width: 280px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: none;
+            overflow: hidden;
+            z-index: 1001;
+            margin-top: 10px;
+        }
+        
+        .hamburger-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hamburger-menu ul {
+            list-style: none;
+        }
+        
+        .hamburger-menu li {
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .hamburger-menu li:last-child {
+            border-bottom: none;
+        }
+        
+        .hamburger-menu a {
+            display: flex;
+            align-items: center;
+            padding: 18px 25px;
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .hamburger-menu a:hover {
+            background-color: #f1f5f9;
+            color: #1e3c72;
+            padding-left: 30px;
+        }
+        
+        .hamburger-menu a.active {
+            background-color: #e8f0fe;
+            color: #1e3c72;
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .menu-number {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            background-color: #e8f0fe;
+            color: #1e3c72;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .hamburger-menu a:hover .menu-number,
+        .hamburger-menu a.active .menu-number {
+            background-color: #1e3c72;
+            color: white;
+        }
+        
+        /* Main Content */
+
+
+        
+        .animation-container {
+            width: 100%;
+            height: 120px;
+            background-color: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            margin: 30px 0 60px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .moving-text {
+            position: absolute;
+            white-space: nowrap;
+            font-size: 1.8rem;
+            font-weight: bold;
+            right: -100%;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: moveLeft 25s linear infinite;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+        }
+        
+        @keyframes moveLeft {
+            0% {
+                right: -100%;
+            }
+            100% {
+                right: 100%;
+            }
+        }
+        
+        .color-change {
+            animation: colorChange 10s infinite alternate;
+        }
+        
+        @keyframes colorChange {
+            0% { color: #f87171; } /* Red */
+            20% { color: #fbbf24; } /* Amber */
+            40% { color: #34d399; } /* Emerald */
+            60% { color: #60a5fa; } /* Blue */
+            80% { color: #a78bfa; } /* Violet */
+            100% { color: #f472b6; } /* Pink */
+        }
+    
+    
+
+        main {
+            margin-top: 100px;
+            padding-bottom: 60px;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .page.active {
+            display: block;
+        }
+
+
+                .animation-container {
+            width: 100%;
+            height: 120px;
+            background-color: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            margin: 30px 0 60px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .moving-text {
+            position: absolute;
+            white-space: nowrap;
+            font-size: 1.8rem;
+            font-weight: bold;
+            right: -100%;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: moveLeft 25s linear infinite;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+        }
+        
+        @keyframes moveLeft {
+            0% {
+                right: -100%;
+            }
+            100% {
+                right: 100%;
+            }
+        }
+        
+        .program-info {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border-radius: 15px;
+            padding: 40px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-info::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #f59e0b, #10b981, #3b82f6);
+        }
+        
+        .program-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+        
+        .program-info p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #e2e8f0;
+            margin-bottom: 25px;
+        }
+        
+        .program-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .detail-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 180px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .detail-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .detail-box i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .duration { color: #60a5fa; }
+        .format { color: #34d399; }
+        .audience { color: #f472b6; }
+
+                .footer {
+            margin-top: 40px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .pulse {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .moving-text {
+                font-size: 1.4rem;
+                animation: moveLeft 18s linear infinite;
+            }
+            
+            .program-info h2 {
+                font-size: 1.8rem;
+            }
+            
+            .program-info p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .moving-text {
+                font-size: 1.1rem;
+                animation: moveLeft 15s linear infinite;
+            }
+            
+            .detail-box {
+                min-width: 100%;
+            }
+        }
+
+
+
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(30, 60, 114, 0.05);
+            border-radius: 50%;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(30, 60, 114, 0.05);
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .cta-button.primary {
+            background: #1e3c72;
+            color: white;
+        }
+        
+        .cta-button.secondary {
+            background: white;
+            color: #1e3c72;
+            border: 2px solid #1e3c72;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button.primary:hover {
+            background: #2a5298;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #f0f7ff;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        /* Content Sections */
+        .section-title {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 30px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #4a90e2);
+            border-radius: 2px;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+        
+        /* Weekly Notes Section */
+        .weekly-notes-section {
+            margin: 50px 0;
+        }
+        
+        .week-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .week-btn {
+            padding: 12px 25px;
+            background: #f1f5f9;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            color: #64748b;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .week-btn:hover {
+            background: #e2e8f0;
+        }
+        
+        .week-btn.active {
+            background: #1e3c72;
+            color: white;
+            border-color: #1e3c72;
+        }
+        
+        .notes-container {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            min-height: 400px;
+        }
+        
+        .week-content {
+            display: none;
+        }
+        
+        .week-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .week-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .week-title {
+            color: #1e3c72;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .week-subtitle {
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+        
+        .notes-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .action-btn {
+            padding: 10px 20px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .action-btn:hover {
+            background: #2a5298;
+            transform: translateY(-2px);
+        }
+        
+        .action-btn.secondary {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .action-btn.secondary:hover {
+            background: #e2e8f0;
+        }
+        
+        .notes-content {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .notes-content h3 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .notes-content p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .notes-content ul, .notes-content ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+            color: #4a5568;
+        }
+        
+        .notes-content li {
+            margin-bottom: 10px;
+        }
+        
+        .upload-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+            border: 2px dashed #cbd5e0;
+        }
+        
+        .upload-section h3 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .upload-area {
+            border: 2px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .upload-area:hover {
+            border-color: #1e3c72;
+            background: #f0f7ff;
+        }
+        
+        .upload-area i {
+            font-size: 3rem;
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+        
+        .upload-area p {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+        
+        .upload-area .file-info {
+            color: #1e3c72;
+            font-weight: 600;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .uploaded-files {
+            margin-top: 30px;
+        }
+        
+        .uploaded-files h4 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .file-list {
+            list-style: none;
+        }
+        
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background: #e8f0fe;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e3c72;
+            font-size: 1.2rem;
+        }
+        
+        .file-details h5 {
+            color: #1e3c72;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .file-details p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+        
+        .file-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .file-action-btn {
+            padding: 8px 15px;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 6px;
+            color: #64748b;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .file-action-btn:hover {
+            background: #e2e8f0;
+        }
+        
+        .file-action-btn.download {
+            background: #1e3c72;
+            color: white;
+        }
+        
+        .file-action-btn.download:hover {
+            background: #2a5298;
+        }
+        
+        /* Video Section */
+        .video-section {
+            margin: 50px 0;
+        }
+        
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .video-player {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .video-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 25px;
+        }
+        
+        .video-info h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .video-info p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .video-duration {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #1e3c72;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+        
+        /* Assessment Section */
+        .assessment-section {
+            margin: 60px 0;
+        }
+        
+        .quiz-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .quiz-question {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .quiz-question:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .quiz-options {
+            list-style: none;
+        }
+        
+        .quiz-option {
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .quiz-option:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e0;
+        }
+        
+        .quiz-option.selected {
+            background: #e8f0fe;
+            border-color: #1e3c72;
+            color: #1e3c72;
+            font-weight: 500;
+        }
+        
+        .quiz-option.correct {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #065f46;
+        }
+        
+        .quiz-option.incorrect {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #7f1d1d;
+        }
+        
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .quiz-button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .quiz-button.submit {
+            background: #1e3c72;
+            color: white;
+        }
+        
+        .quiz-button.reset {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 2px solid #cbd5e0;
+        }
+        
+        .quiz-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-button.submit:hover {
+            background: #2a5298;
+        }
+        
+        .quiz-button.reset:hover {
+            background: #e2e8f0;
+        }
+        
+        .quiz-results {
+            background: #f0f7ff;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            display: none;
+            text-align: center;
+        }
+        
+        .quiz-results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .score-display {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .result-message {
+            font-size: 1.3rem;
+            color: #334155;
+            margin-bottom: 30px;
+        }
+        
+        .reward-message {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #854d0e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .reward-message.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .reward-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #f59e0b;
+        }
+
+
+         /* Student Image Section */
+        .student-image-section {
+            margin: 60px 0;
+        }
+        
+        .image-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(30, 60, 114, 0.8));
+            color: white;
+            padding: 30px;
+        }
+        
+        .image-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .image-overlay p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 50px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-icon {
+            background: white;
+            color: #1e3c72;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .footer-logo-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .footer-logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .developer-team {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .developer-team p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .developer-team strong {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .content-card {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 0;
+            }
+            
+            main {
+                margin-top: 90px;
+            }
+            
+            .hero-section {
+                padding: 40px 25px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .week-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .notes-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .file-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .quiz-controls {
+                flex-direction: column;
+            }
+            
+            .quiz-button {
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section {
+                padding: 30px 20px;
+            }
+            
+            .content-card {
+                padding: 25px;
+            }
+            
+            .week-selector {
+                justify-content: center;
+            }
+            
+            .week-btn {
+                flex: 1;
+                min-width: 120px;
+                text-align: center;
+            }
+            
+            .notes-container {
+                padding: 20px;
+            }
+            
+            .quiz-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Hamburger Menu -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">ICT</div>
+                    <div class="logo-text">
+                        <h1>Digital Literacy Program</h1>
+                        <p>Empowering Tanzanian Youth Through Technology</p>
+                    </div>
+                </div>
+                
+                <div class="hamburger-container">
+                    <button class="hamburger-btn" id="hamburgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <div class="hamburger-menu" id="hamburgerMenu">
+                        <ul>
+                            <li><a href="#" class="nav-link active" data-page="home">
+                                <span class="menu-number">1</span>
+                                Home
+                            </a></li>
+                            <li><a href="#" class="nav-link" data-page="weekly-notes">
+                                <span class="menu-number">2</span>
+                                Weekly Notes
+                            </a></li>
+                            <li><a href="#" class="nav-link" data-page="videos">
+                                <span class="menu-number">3</span>
+                                Video Tutorials
+                            </a></li>
+                            <li><a href="#" class="nav-link" data-page="assessment">
+                                <span class="menu-number">4</span>
+                                Assessment
+                            </a></li>
+                            <li><a href="#" class="nav-link" data-page="about">
+                                <span class="menu-number">5</span>
+                                About Program
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Home Page -->
+
+
+        <div class="page active" id="home">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Master Digital Skills for Future Success</h1>
+                    <p class="hero-subtitle">
+                        A specialized 4-week blended learning program designed for Form 2 students in Tanzania. 
+                        Gain essential computer literacy, online safety knowledge, and practical digital skills 
+                        through interactive lessons and hands-on activities.
+                    </p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button primary" data-page="weekly-notes">
+                            <i class="fas fa-book-open"></i>
+                            Access Course Notes
+                        </a>
+                        <a href="#" class="cta-button secondary" data-page="assessment">
+                            <i class="fas fa-question-circle"></i>
+                            Take Assessment
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">60</div>
+                    <div class="stat-label">Students Enrolled</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Weeks Duration</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30/70</div>
+                    <div class="stat-label">Blended Learning Ratio</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Weekly Modules</div>
+                </div>
+            </section>  
+
+            <section class="student-image-section">
+                <div class="image-container">
+                    <img src="images/PICD.jpg " alt="Students engaged in ICT learning">
+                    <div class="image-overlay">
+                        <h3>Interactive Learning Environment</h3>
+                        <p>Students actively participating in digital literacy sessions with modern technology tools</p>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section class="content-card">
+                <h2 class="section-title">Program Overview</h2>
+                <p class="mb-30">
+                    This blended learning initiative addresses the digital literacy gap among secondary school students 
+                    in Tanzania through a carefully structured curriculum that combines in-person computer lab sessions 
+                    with mobile-accessible online learning modules.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+                    <div style="background: #f0f7ff; padding: 25px; border-radius: 12px; border-left: 5px solid #1e3c72;">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px; font-size: 1.2rem; font-weight: 600;">Weekly Structured Learning</h3>
+                        <p style="color: #4a5568;">Access comprehensive notes and materials for each week of the 4-week program.</p>
+                        <a href="#" class="cta-button primary" data-page="weekly-notes" style="padding: 10px 20px; font-size: 0.9rem; margin-top: 15px; display: inline-block;">
+                            View Weekly Notes
+                        </a>
+                    </div>
+                    
+                    <div style="background: #f0f7ff; padding: 25px; border-radius: 12px; border-left: 5px solid #4a90e2;">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px; font-size: 1.2rem; font-weight: 600;">Interactive Video Lessons</h3>
+                        <p style="color: #4a5568;">Short, focused video tutorials under 5 minutes for efficient learning.</p>
+                        <a href="#" class="cta-button primary" data-page="videos" style="padding: 10px 20px; font-size: 0.9rem; margin-top: 15px; display: inline-block;">
+                            Watch Videos
+                        </a>
+                    </div>
+                    
+                    <div style="background: #f0f7ff; padding: 25px; border-radius: 12px; border-left: 5px solid #1e3c72;">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px; font-size: 1.2rem; font-weight: 600;">Knowledge Assessment</h3>
+                        <p style="color: #4a5568;">Test your understanding with interactive quizzes and receive instant feedback.</p>
+                        <a href="#" class="cta-button primary" data-page="assessment" style="padding: 10px 20px; font-size: 0.9rem; margin-top: 15px; display: inline-block;">
+                            Take Quiz
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        
+        <!-- Weekly Notes Page -->
+        <div class="page" id="weekly-notes">
+            <section class="content-card">
+                <h2 class="section-title">Weekly Course Structure & Notes</h2>
+                <p class="mb-30">
+                    Access comprehensive learning materials for each week of the 4-week program. 
+                    Students can read notes, upload their own materials, and download resources for offline study.
+                </p>
+                
+                <div class="weekly-notes-section">
+                    <div class="week-selector">
+                        <button class="week-btn active" data-week="week1">Week 1</button>
+                        <button class="week-btn" data-week="week2">Week 2</button>
+                        <button class="week-btn" data-week="week3">Week 3</button>
+                        <button class="week-btn" data-week="week4">Week 4</button>
+                    </div>
+
+                      <section class="student-image-section">
+                <div class="image-container">
+                    <img src="images/PICDS.jpg" alt="Students collaborating on ICT project">
+                    <div class="image-overlay">
+                        <h3>Collaborative Learning in Action</h3>
+                        <p>Students working together to solve problems and develop digital skills through peer interaction</p>
+                    </div>
+                </div>
+            </section>
+                    
+                    <div class="notes-container">
+                        <!-- Week 1 Content -->
+                        <div class="week-content active" id="week1">
+                            <div class="week-header">
+                                <div>
+                                    <h2 class="week-title">Week 1: Digital Foundations</h2>
+                                    <p class="week-subtitle">Introduction to Computers and Basic Operations</p>
+                                </div>
+                                <div class="notes-actions">
+                                    <button class="action-btn" id="printWeek1">
+                                        <i class="fas fa-print"></i>
+                                        Print Notes
+                                    </button>
+                                    <button class="action-btn secondary" id="downloadWeek1">
+                                        <i class="fas fa-download"></i>
+                                        Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="notes-content">
+                                <h3>Understanding Computer Systems</h3>
+                                <p>Computers are electronic devices that process data according to instructions provided by software programs. They consist of hardware (physical components) and software (programs and applications).</p>
+                                
+                                <h3>Key Learning Objectives</h3>
+                                <ul>
+                                    <li>Identify basic computer hardware components (monitor, CPU, keyboard, mouse)</li>
+                                    <li>Understand the difference between hardware and software</li>
+                                    <li>Learn proper startup and shutdown procedures</li>
+                                    <li>Navigate the computer desktop interface</li>
+                                    <li>Create, save, and manage files and folders</li>
+                                </ul>
+                                
+                                <h3>Practical Activities</h3>
+                                <ol>
+                                    <li>Power on the computer and observe the startup process</li>
+                                    <li>Practice using the mouse (click, double-click, right-click, drag)</li>
+                                    <li>Explore the desktop interface and taskbar</li>
+                                    <li>Create a new folder on the desktop</li>
+                                    <li>Create a simple text document and save it in your folder</li>
+                                </ol>
+                                
+                                <h3>Key Terminology</h3>
+                                <p><strong>Hardware:</strong> Physical components of a computer system (monitor, keyboard, CPU, etc.)</p>
+                                <p><strong>Software:</strong> Programs and applications that run on computer hardware</p>
+                                <p><strong>Operating System:</strong> Software that manages computer hardware and software resources (Windows, Linux, macOS)</p>
+                                <p><strong>Desktop:</strong> The main screen area you see after logging into your computer</p>
+                            </div>
+                            
+                            <!-- Upload Section for Week 1 -->
+                            <div class="upload-section">
+                                <h3>Upload Your Notes for Week 1</h3>
+                                <div class="upload-area" id="uploadAreaWeek1" onclick="document.getElementById('fileInputWeek1').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click to upload your notes, assignments, or additional materials</p>
+                                    <p class="file-info">Supports PDF, DOC, DOCX, TXT files (Max 10MB)</p>
+                                </div>
+                                <input type="file" id="fileInputWeek1" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+                                
+                                <div class="uploaded-files">
+                                    <h4>Your Uploaded Files</h4>
+                                    <ul class="file-list" id="fileListWeek1">
+                                        <!-- Files will be added here dynamically -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Week 2 Content -->
+                        <div class="week-content" id="week2">
+                            <div class="week-header">
+                                <div>
+                                    <h2 class="week-title">Week 2: Word Processing Skills</h2>
+                                    <p class="week-subtitle">Creating and Formatting Documents</p>
+                                </div>
+                                <div class="notes-actions">
+                                    <button class="action-btn" id="printWeek2">
+                                        <i class="fas fa-print"></i>
+                                        Print Notes
+                                    </button>
+                                    <button class="action-btn secondary" id="downloadWeek2">
+                                        <i class="fas fa-download"></i>
+                                        Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="notes-content">
+                                <h3>Introduction to Word Processing</h3>
+                                <p>Word processing software allows you to create, edit, format, and print text documents. Common examples include Microsoft Word, Google Docs, and LibreOffice Writer.</p>
+                                
+                                <h3>Key Learning Objectives</h3>
+                                <ul>
+                                    <li>Open and create new documents in word processing software</li>
+                                    <li>Type, edit, and format text (font, size, style, color)</li>
+                                    <li>Use paragraph formatting (alignment, spacing, indentation)</li>
+                                    <li>Insert and format images, tables, and other elements</li>
+                                    <li>Save documents in different formats and locations</li>
+                                    <li>Print documents with proper page setup</li>
+                                </ul>
+                                
+                                <h3>Practical Activities</h3>
+                                <ol>
+                                    <li>Create a new document and type a short paragraph about yourself</li>
+                                    <li>Format the text with different fonts, sizes, and colors</li>
+                                    <li>Practice aligning text (left, center, right, justified)</li>
+                                    <li>Insert a table with your weekly schedule</li>
+                                    <li>Add page numbers and save the document in PDF format</li>
+                                </ol>
+                                
+                                <h3>Formatting Tips</h3>
+                                <p><strong>Consistency:</strong> Use the same font and formatting throughout your document</p>
+                                <p><strong>Readability:</strong> Choose fonts that are easy to read (Arial, Times New Roman, Calibri)</p>
+                                <p><strong>Spacing:</strong> Use appropriate line spacing (1.5 or double spacing for readability)</p>
+                                <p><strong>Headers/Footers:</strong> Use headers for document titles and footers for page numbers</p>
+                            </div>
+                            
+                            <!-- Upload Section for Week 2 -->
+                            <div class="upload-section">
+                                <h3>Upload Your Notes for Week 2</h3>
+                                <div class="upload-area" id="uploadAreaWeek2" onclick="document.getElementById('fileInputWeek2').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click to upload your notes, assignments, or additional materials</p>
+                                    <p class="file-info">Supports PDF, DOC, DOCX, TXT files (Max 10MB)</p>
+                                </div>
+                                <input type="file" id="fileInputWeek2" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+                                
+                                <div class="uploaded-files">
+                                    <h4>Your Uploaded Files</h4>
+                                    <ul class="file-list" id="fileListWeek2">
+                                        <!-- Files will be added here dynamically -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Week 3 Content -->
+                        <div class="week-content" id="week3">
+                            <div class="week-header">
+                                <div>
+                                    <h2 class="week-title">Week 3: Internet Navigation</h2>
+                                    <p class="week-subtitle">Safe Browsing and Online Research</p>
+                                </div>
+                                <div class="notes-actions">
+                                    <button class="action-btn" id="printWeek3">
+                                        <i class="fas fa-print"></i>
+                                        Print Notes
+                                    </button>
+                                    <button class="action-btn secondary" id="downloadWeek3">
+                                        <i class="fas fa-download"></i>
+                                        Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="notes-content">
+                                <h3>Understanding the Internet</h3>
+                                <p>The Internet is a global network of computers that allows sharing of information and resources. Web browsers (Chrome, Firefox, Safari) are software applications used to access websites on the Internet.</p>
+                                
+                                <h3>Key Learning Objectives</h3>
+                                <ul>
+                                    <li>Understand how the Internet works and basic terminology</li>
+                                    <li>Navigate websites using web browsers</li>
+                                    <li>Use search engines effectively to find information</li>
+                                    <li>Evaluate the credibility of online sources</li>
+                                    <li>Bookmark important websites for quick access</li>
+                                    <li>Understand browser security settings and features</li>
+                                </ul>
+                                
+                                <h3>Practical Activities</h3>
+                                <ol>
+                                    <li>Open a web browser and navigate to different educational websites</li>
+                                    <li>Use a search engine to find information about a specific topic</li>
+                                    <li>Bookmark three useful educational websites</li>
+                                    <li>Practice using browser tabs to open multiple websites</li>
+                                    <li>Clear browser history and cache for privacy</li>
+                                </ol>
+                                
+                                <h3>Search Engine Tips</h3>
+                                <p><strong>Keywords:</strong> Use specific keywords rather than full sentences</p>
+                                <p><strong>Quotation Marks:</strong> Use "quotes" to search for exact phrases</p>
+                                <p><strong>Site Search:</strong> Use "site:" to search within a specific website (site:tanzania.go.tz education)</p>
+                                <p><strong>Evaluate Sources:</strong> Check the author, date, and credibility of information</p>
+                            </div>
+                            
+                            <!-- Upload Section for Week 3 -->
+                            <div class="upload-section">
+                                <h3>Upload Your Notes for Week 3</h3>
+                                <div class="upload-area" id="uploadAreaWeek3" onclick="document.getElementById('fileInputWeek3').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click to upload your notes, assignments, or additional materials</p>
+                                    <p class="file-info">Supports PDF, DOC, DOCX, TXT files (Max 10MB)</p>
+                                </div>
+                                <input type="file" id="fileInputWeek3" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+                                
+                                <div class="uploaded-files">
+                                    <h4>Your Uploaded Files</h4>
+                                    <ul class="file-list" id="fileListWeek3">
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Week 4 Content -->
+                        <div class="week-content" id="week4">
+                            <div class="week-header">
+                                <div>
+                                    <h2 class="week-title">Week 4: Online Safety</h2>
+                                    <p class="week-subtitle">Cyber Security and Digital Citizenship</p>
+                                </div>
+                                <div class="notes-actions">
+                                    <button class="action-btn" id="printWeek4">
+                                        <i class="fas fa-print"></i>
+                                        Print Notes
+                                    </button>
+                                    <button class="action-btn secondary" id="downloadWeek4">
+                                        <i class="fas fa-download"></i>
+                                        Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="notes-content">
+                                <h3>Understanding Online Threats</h3>
+                                <p>As we use the Internet more frequently, understanding online safety becomes crucial. This week focuses on protecting yourself from cyber threats and practicing responsible digital citizenship.</p>
+                                
+                                <h3>Key Learning Objectives</h3>
+                                <ul>
+                                    <li>Create strong, secure passwords and manage them safely</li>
+                                    <li>Identify common online threats (phishing, malware, scams)</li>
+                                    <li>Understand privacy settings on social media and websites</li>
+                                    <li>Practice safe online communication and behavior</li>
+                                    <li>Recognize and avoid sharing personal information online</li>
+                                    <li>Understand copyright and ethical use of online content</li>
+                                </ul>
+                                
+                                <h3>Practical Activities</h3>
+                                <ol>
+                                    <li>Create a strong password using the guidelines provided</li>
+                                    <li>Identify phishing emails from examples provided</li>
+                                    <li>Review and adjust privacy settings on a social media platform</li>
+                                    <li>Create a digital safety checklist for personal use</li>
+                                    <li>Practice safe logout procedures on shared computers</li>
+                                </ol>
+                                
+                                <h3>Password Security Guidelines</h3>
+                                <p><strong>Length:</strong> Use at least 12 characters</p>
+                                <p><strong>Complexity:</strong> Include uppercase, lowercase, numbers, and symbols</p>
+                                <p><strong>Uniqueness:</strong> Don't reuse passwords across different sites</p>
+                                <p><strong>Storage:</strong> Use a password manager or secure notebook (not digital files)</p>
+                                <p><strong>Sharing:</strong> Never share passwords with anyone</p>
+                            </div>
+                            
+                            <!-- Upload Section for Week 4 -->
+                            <div class="upload-section">
+                                <h3>Upload Your Notes for Week 4</h3>
+                                <div class="upload-area" id="uploadAreaWeek4" onclick="document.getElementById('fileInputWeek4').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click to upload your notes, assignments, or additional materials</p>
+                                    <p class="file-info">Supports PDF, DOC, DOCX, TXT files (Max 10MB)</p>
+                                </div>
+                                <input type="file" id="fileInputWeek4" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+                                
+                                <div class="uploaded-files">
+                                    <h4>Your Uploaded Files</h4>
+                                    <ul class="file-list" id="fileListWeek4">
+                                        <!-- Files will be added here dynamically -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Video Tutorials Page -->
+        <div class="page" id="videos">
+            <section class="content-card">
+                <h2 class="section-title">Video Tutorials</h2>
+                <p class="mb-30">
+                    Short, video with less than 3 minutes to maximize engagement and retention in Learning
+                </p>
+                
+                <div class="video-container">
+                    <div class="video-card">
+                        <div class="video-player">
+                            <iframe src="videos/Basic ICT tools.mp4 " title="Basic Information Computer Tools" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Basic Information Computer Tools </h3>
+                            <p>Learn essential computer operations including using a mouse, keyboard, and navigating system interfaces.</p>
+                            <span class="video-duration">0.37 minutes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-player">
+                            <iframe src="videos/MUSIC.mp4 " title="Entertainment in ICT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Musical Entertainment within ICT</h3>
+                            <p>Entertainment as a part of Information Computer Technology in daily life.</p>
+                            <span class="video-duration">0.25minutes</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Assessment Page -->
+        <div class="page" id="assessment">
+            <section class="content-card">
+                <h2 class="section-title">Knowledge Assessment</h2>
+                <p class="mb-30">
+                    Test your understanding of online safety concepts with this interactive quiz. 
+                    Select your answers and submit to receive immediate feedback and your score.
+                </p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-question">
+                        <div class="question-text">1. Which of the following represents the strongest password?</div>
+                        <ul class="quiz-options">
+                            <li class="quiz-option" data-correct="false">password123</li>
+                            <li class="quiz-option" data-correct="false">mypetname</li>
+                            <li class="quiz-option" data-correct="true">T7$pL9#mQ2wX</li>
+                            <li class="quiz-option" data-correct="false">123456789</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <div class="question-text">2. What is the appropriate action when receiving an email from an unknown sender requesting personal information?</div>
+                        <ul class="quiz-options">
+                            <li class="quiz-option" data-correct="false">Reply with the requested information</li>
+                            <li class="quiz-option" data-correct="true">Delete the email without opening any attachments</li>
+                            <li class="quiz-option" data-correct="false">Forward it to friends to warn them</li>
+                            <li class="quiz-option" data-correct="false">Click links to investigate further</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <div class="question-text">3. Which activity should be avoided when using public Wi-Fi networks?</div>
+                        <ul class="quiz-options">
+                            <li class="quiz-option" data-correct="false">Reading news articles</li>
+                            <li class="quiz-option" data-correct="false">Checking weather forecasts</li>
+                            <li class="quiz-option" data-correct="true">Accessing online banking services</li>
+                            <li class="quiz-option" data-correct="false">Browsing educational websites</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <div class="question-text">4. What characteristic indicates a website is secure for entering personal information?</div>
+                        <ul class="quiz-options">
+                            <li class="quiz-option" data-correct="false">The website has attractive graphics</li>
+                            <li class="quiz-option" data-correct="true">The URL begins with "https://" and shows a padlock icon</li>
+                            <li class="quiz-option" data-correct="false">The website loads quickly</li>
+                            <li class="quiz-option" data-correct="false">The website has many pop-up advertisements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quiz-controls">
+                        <button class="quiz-button reset" id="resetQuiz">Reset Answers</button>
+                        <button class="quiz-button submit" id="submitQuiz">Submit Assessment</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-results" id="quizResults">
+                    <div class="score-display" id="scoreDisplay">0/4</div>
+                    <div class="result-message" id="resultMessage">Complete the quiz to see your results</div>
+                    
+                    <div class="reward-message" id="rewardMessage">
+                        <div class="reward-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div>Excellent Performance! You've demonstrated strong understanding of online safety principles.</div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; text-align: left;">
+                        <h4 style="color: #1e3c72; margin-bottom: 15px; font-weight: 600;">Answer Explanations:</h4>
+                        <div style="background: white; padding: 20px; border-radius: 10px;">
+                            <p style="color: #334155; margin-bottom: 10px;"><strong>Question 1:</strong> Strong passwords include uppercase, lowercase, numbers, and special characters.</p>
+                            <p style="color: #334155; margin-bottom: 10px;"><strong>Question 2:</strong> Never respond to or open emails from unknown senders requesting personal information.</p>
+                            <p style="color: #334155; margin-bottom: 10px;"><strong>Question 3:</strong> Avoid sensitive transactions on public Wi-Fi as connections may not be secure.</p>
+                            <p style="color: #334155;"><strong>Question 4:</strong> "https://" and padlock icons indicate encrypted, secure connections.</p>
+                        </div>
+                    </div>
+                    
+                    <button class="quiz-button submit mt-40" id="retakeQuiz" style="width: 100%; max-width: 300px; margin: 30px auto 0;">Retake Assessment</button>
+                </div>
+            </section>
+        </div>
+        
+        <!-- About Program Page -->
+        <div class="page" id="about">
+            <section class="content-card">
+                <h2 class="section-title">About the Program</h2>
+                
+                <div class="mb-40">
+                    <h3 style="color: #1e3c72; margin-bottom: 15px; font-size: 1.3rem; font-weight: 600;">Program Mission</h3>
+                    <p>
+                        This blended digital literacy program aims to bridge the technology gap for secondary school students 
+                        in Tanzania by providing accessible, engaging, and practical ICT education. By combining traditional 
+                        classroom instruction with mobile-accessible online learning, we ensure that students in rural areas 
+                        can develop essential digital skills regardless of infrastructure limitations.
+                    </p>
+                </div>
+
+                  <div class="student-image-section mt-40">
+                    <div class="image-container">
+                        <img src="images/PICDD.jpg " alt="Students learn ICT by Practice">
+                        <div class="image-overlay">
+                            <h3>Mobile-First Learning Design</h3>
+                            <p>Students accessing educational content on smartphones, demonstrating adaptive technology use in resource-limited settings</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-40">
+                    <h3 style="color: #1e3c72; margin-bottom: 15px; font-size: 1.3rem; font-weight: 600;">Learning Methodology</h3>
+                    <p>
+                        Our approach is built on evidence-based educational practices, emphasizing collaborative learning, 
+                        practical application, and incremental skill development. The curriculum is designed to be culturally 
+                        relevant and context-appropriate for Tanzanian students, with content available in both Swahili and English.
+                    </p>
+                </div>
+                
+                <div style="background: #f0f7ff; border-radius: 12px; padding: 30px; margin-top: 30px;">
+                    <h3 style="color: #1e3c72; margin-bottom: 20px; font-size: 1.3rem; font-weight: 600;">Weekly Notes System</h3>
+                    <p style="color: #4a5568; margin-bottom: 20px;">
+                        The platform includes a comprehensive weekly notes system where students can:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div>
+                            <h4 style="color: #1e3c72; font-size: 1rem; margin-bottom: 8px; font-weight: 600;">Access Learning Materials</h4>
+                            <p style="color: #64748b; font-size: 0.9rem;">Detailed notes for each week covering all key concepts and skills.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #1e3c72; font-size: 1rem; margin-bottom: 8px; font-weight: 600;">Upload Personal Notes</h4>
+                            <p style="color: #64748b; font-size: 0.9rem;">Students can upload their own notes and materials for each week.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #1e3c72; font-size: 1rem; margin-bottom: 8px; font-weight: 600;">Download Resources</h4>
+                            <p style="color: #64748b; font-size: 0.9rem;">All materials can be downloaded for offline study and reference.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">ICT</div>
+                        <div class="footer-logo-text">
+                            <h3>Digital Literacy Program</h3>
+                            <p>Tanzania Secondary Schools Initiative</p>
+                        </div>
+                    </div>
+                    
+                    <div class="developer-team">
+                        <p>Development Team: <strong>PRINCE ALINANI Developers Team</strong></p>
+                        <p>Specialized in educational technology solutions for Tanzanian schools</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="weekly-notes">Weekly Notes</a></li>
+                        <li><a href="#" data-page="videos">Video Tutorials</a></li>
+                        <li><a href="#" data-page="assessment">Assessment</a></li>
+                        <li><a href="#" data-page="about">About Program</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Weekly Modules</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="weekly-notes" data-week="week1">Week 1: Digital Foundations</a></li>
+                        <li><a href="#" data-page="weekly-notes" data-week="week2">Week 2: Word Processing</a></li>
+                        <li><a href="#" data-page="weekly-notes" data-week="week3">Week 3: Internet Navigation</a></li>
+                        <li><a href="#" data-page="weekly-notes" data-week="week4">Week 4: Online Safety</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Tanzania Secondary Schools</a></li>
+                        <li><a href="#">ICT Education Department</a></li>
+                        <li><a href="#">Digital Literacy Initiative</a></li>
+                        <li><a href="#">Program Coordinator</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Digital Literacy Program for Tanzanian Secondary Schools. All rights reserved.</p>
+                <p>Developed by PRINCE ALINANI Developers Team | Professional Educational Technology Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+            const movingText = document.querySelector('.moving-text');
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation functionality
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            const footerLinks = document.querySelectorAll('.footer-links a');
+            
+            // Toggle hamburger menu
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                hamburgerBtn.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
+            });
+            
+            // Close hamburger menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!hamburgerMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                    hamburgerBtn.classList.remove('active');
+                    hamburgerMenu.classList.remove('active');
+                }
+            });
+            
+            // Function to switch pages
+            function switchPage(pageId, weekId = null) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === pageId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Close hamburger menu on mobile
+                hamburgerBtn.classList.remove('active');
+                hamburgerMenu.classList.remove('active');
+                
+                // If week ID is provided, activate that week
+                if (weekId && pageId === 'weekly-notes') {
+                    activateWeek(weekId);
+                }
+                
+                // Scroll to top of page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            // Set up navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    switchPage(pageId);
+                });
+            });
+            
+            // Set up CTA buttons
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    switchPage(pageId);
+                });
+            });
+            
+            // Set up footer links
+            footerLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    const weekId = this.getAttribute('data-week');
+                    if (pageId) {
+                        switchPage(pageId, weekId);
+                    }
+                });
+            });
+            
+            // Weekly Notes Functionality
+            const weekButtons = document.querySelectorAll('.week-btn');
+            const weekContents = document.querySelectorAll('.week-content');
+            
+            // Function to activate a specific week
+            function activateWeek(weekId) {
+                // Update week buttons
+                weekButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-week') === weekId) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Update week contents
+                weekContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === weekId) {
+                        content.classList.add('active');
+                    }
+                });
+            }
+            
+            // Set up week buttons
+            weekButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const weekId = this.getAttribute('data-week');
+                    activateWeek(weekId);
+                });
+            });
+            
+            // File upload functionality for each week
+            const fileInputs = [
+                document.getElementById('fileInputWeek1'),
+                document.getElementById('fileInputWeek2'),
+                document.getElementById('fileInputWeek3'),
+                document.getElementById('fileInputWeek4')
+            ];
+            
+            const fileLists = [
+                document.getElementById('fileListWeek1'),
+                document.getElementById('fileListWeek2'),
+                document.getElementById('fileListWeek3'),
+                document.getElementById('fileListWeek4')
+            ];
+            
+            // Initialize file storage in localStorage
+            function initializeFileStorage() {
+                for (let i = 1; i <= 4; i++) {
+                    const key = `week${i}Files`;
+                    if (!localStorage.getItem(key)) {
+                        localStorage.setItem(key, JSON.stringify([]));
+                    }
+                }
+                loadStoredFiles();
+            }
+            
+            // Load stored files from localStorage
+            function loadStoredFiles() {
+                for (let i = 0; i < 4; i++) {
+                    const weekNum = i + 1;
+                    const key = `week${weekNum}Files`;
+                    const storedFiles = JSON.parse(localStorage.getItem(key)) || [];
+                    
+                    fileLists[i].innerHTML = '';
+                    
+                    storedFiles.forEach(file => {
+                        addFileToList(i, file.name, file.size, file.date);
+                    });
+                }
+            }
+            
+            // Add file to list and storage
+            function addFileToList(weekIndex, fileName, fileSize, uploadDate) {
+                const listItem = document.createElement('li');
+                listItem.className = 'file-item';
+                
+                // Format file size
+                const formattedSize = formatFileSize(fileSize);
+                
+                listItem.innerHTML = `
+                    <div class="file-info">
+                        <div class="file-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="file-details">
+                            <h5>${fileName}</h5>
+                            <p>${formattedSize} • Uploaded: ${uploadDate}</p>
+                        </div>
+                    </div>
+                    <div class="file-actions">
+                        <button class="file-action-btn download" onclick="downloadFile('${fileName}', ${weekIndex})">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <button class="file-action-btn" onclick="removeFile('${fileName}', ${weekIndex})">
+                            <i class="fas fa-trash"></i> Remove
+                        </button>
+                    </div>
+                `;
+                
+                fileLists[weekIndex].appendChild(listItem);
+            }
+            
+            // Format file size
+            function formatFileSize(bytes) {
+                if (bytes < 1024) return bytes + ' bytes';
+                else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+                else return (bytes / 1048576).toFixed(1) + ' MB';
+            }
+            
+            // Handle file uploads
+            fileInputs.forEach((input, index) => {
+                input.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (!file) return;
+                    
+                    // Check file size (10MB limit)
+                    if (file.size > 10 * 1024 * 1024) {
+                        alert('File size exceeds 10MB limit. Please choose a smaller file.');
+                        return;
+                    }
+                    
+                    // Check file type
+                    const allowedTypes = ['.pdf', '.doc', '.docx', '.txt'];
+                    const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+                    
+                    if (!allowedTypes.includes(fileExtension)) {
+                        alert('Only PDF, DOC, DOCX, and TXT files are allowed.');
+                        return;
+                    }
+                    
+                    // Store file information
+                    const weekNum = index + 1;
+                    const key = `week${weekNum}Files`;
+                    const storedFiles = JSON.parse(localStorage.getItem(key)) || [];
+                    
+                    const fileInfo = {
+                        name: file.name,
+                        size: file.size,
+                        date: new Date().toLocaleDateString()
+                    };
+                    
+                    storedFiles.push(fileInfo);
+                    localStorage.setItem(key, JSON.stringify(storedFiles));
+                    
+                    // Add to UI
+                    addFileToList(index, file.name, file.size, fileInfo.date);
+                    
+                    // Reset file input
+                    e.target.value = '';
+                    
+                    // Show success message
+                    alert(`File "${file.name}" uploaded successfully for Week ${weekNum}!`);
+                });
+            });
+            
+            // Download file function (simulated)
+            window.downloadFile = function(fileName, weekIndex) {
+                alert(`Downloading "${fileName}"...\n\nIn a real system, this would download the file from the server.`);
+                
+                // Simulate download with a fake link
+                const link = document.createElement('a');
+                link.href = '#';
+                link.download = fileName;
+                link.click();
+            };
+            
+            // Remove file function
+            window.removeFile = function(fileName, weekIndex) {
+                if (confirm(`Are you sure you want to remove "${fileName}"?`)) {
+                    const weekNum = weekIndex + 1;
+                    const key = `week${weekNum}Files`;
+                    const storedFiles = JSON.parse(localStorage.getItem(key)) || [];
+                    
+                    // Remove file from storage
+                    const updatedFiles = storedFiles.filter(file => file.name !== fileName);
+                    localStorage.setItem(key, JSON.stringify(updatedFiles));
+                    
+                    // Remove from UI
+                    loadStoredFiles();
+                    
+                    alert(`File "${fileName}" removed successfully.`);
+                }
+            };
+            
+            // Print buttons functionality
+            document.querySelectorAll('[id^="printWeek"]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const weekNum = this.id.replace('printWeek', '');
+                    alert(`Printing Week ${weekNum} notes...\n\nIn a real system, this would open the print dialog.`);
+                    // window.print(); // Uncomment for actual printing
+                });
+            });
+            
+            // Download PDF buttons functionality
+            document.querySelectorAll('[id^="downloadWeek"]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const weekNum = this.id.replace('downloadWeek', '');
+                    alert(`Downloading Week ${weekNum} PDF...\n\nIn a real system, this would download the PDF file.`);
+                });
+            });
+            
+            // Quiz functionality
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const submitBtn = document.getElementById('submitQuiz');
+            const resetBtn = document.getElementById('resetQuiz');
+            const retakeBtn = document.getElementById('retakeQuiz');
+            const quizResults = document.getElementById('quizResults');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const resultMessage = document.getElementById('resultMessage');
+            const rewardMessage = document.getElementById('rewardMessage');
+            
+            let selectedOptions = {};
+            
+            // Select quiz option
+            quizOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const question = this.parentNode;
+                    const questionIndex = Array.from(document.querySelectorAll('.quiz-question')).indexOf(question.parentNode);
+                    
+                    // Remove selected class from all options in this question
+                    question.querySelectorAll('.quiz-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Store the selected answer
+                    selectedOptions[questionIndex] = this.getAttribute('data-correct') === 'true';
+                });
+            });
+            
+            // Reset quiz
+            resetBtn.addEventListener('click', function() {
+                quizOptions.forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                });
+                
+                selectedOptions = {};
+                quizResults.classList.remove('active');
+                rewardMessage.classList.remove('active');
+            });
+            
+            // Submit quiz
+            submitBtn.addEventListener('click', function() {
+                const totalQuestions = document.querySelectorAll('.quiz-question').length;
+                let score = 0;
+                let allAnswered = true;
+                
+                // Check if all questions are answered
+                for (let i = 0; i < totalQuestions; i++) {
+                    if (selectedOptions[i] === undefined) {
+                        allAnswered = false;
+                        break;
+                    }
+                }
+                
+                if (!allAnswered) {
+                    alert('Please answer all questions before submitting.');
+                    return;
+                }
+                
+                // Calculate score and show correct/incorrect answers
+                quizOptions.forEach(option => {
+                    if (option.classList.contains('selected')) {
+                        const isCorrect = option.getAttribute('data-correct') === 'true';
+                        if (isCorrect) {
+                            option.classList.add('correct');
+                            score++;
+                        } else {
+                            option.classList.add('incorrect');
+                        }
+                    }
+                });
+                
+                // Show correct answers for questions not answered
+                quizOptions.forEach(option => {
+                    if (option.getAttribute('data-correct') === 'true' && !option.classList.contains('selected')) {
+                        option.classList.add('correct');
+                    }
+                });
+                
+                // Display results
+                scoreDisplay.textContent = `${score}/${totalQuestions}`;
+                
+                // Determine result message and show reward if perfect score
+                if (score === totalQuestions) {
+                    resultMessage.textContent = 'Perfect Score! You have excellent understanding of online safety.';
+                    rewardMessage.classList.add('active');
+                } else if (score >= totalQuestions * 0.75) {
+                    resultMessage.textContent = 'Well done! You have a strong understanding of online safety principles.';
+                } else if (score >= totalQuestions * 0.5) {
+                    resultMessage.textContent = 'Good effort! Review the material to improve your understanding.';
+                } else {
+                    resultMessage.textContent = 'Keep learning! Review the online safety materials and try again.';
+                }
+                
+                // Show quiz results
+                quizResults.classList.add('active');
+                
+                // Scroll to results
+                quizResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            
+            // Retake quiz
+            retakeBtn.addEventListener('click', function() {
+                resetBtn.click();
+                quizResults.classList.remove('active');
+            });
+            
+            // Close hamburger menu on window resize (if resized to desktop)
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    hamburgerBtn.classList.remove('active');
+                    hamburgerMenu.classList.remove('active');
+                }
+            });
+            
+            // Initialize the system
+            initializeFileStorage();
+            switchPage('home');
+        });
+    </script>
+</body>
+</html>
